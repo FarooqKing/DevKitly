@@ -11,9 +11,9 @@ export default function Home() {
     <main>
       <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">Developer tools that just work.</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">Free online tools that just work.</h1>
           <p className="mx-auto mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400">
-            {tools.length} free utilities for everyday tasks. No sign-up, no uploads, no waiting.
+            {tools.length} tools for PDFs, spreadsheets, calculations and code. No sign-up, no uploads, no waiting.
           </p>
           <div className="mx-auto mt-8 max-w-xl"><SearchBox autoFocus /></div>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400">

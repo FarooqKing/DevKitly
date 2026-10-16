@@ -31,9 +31,9 @@ export default function ToolsMenu() {
       <button onClick={() => setOpen((o) => !o)} aria-label="Menu" className="btn-icon md:hidden">{open ? <X size={18} /> : <Menu size={18} />}</button>
 
       {open && (
-        <div className="fixed inset-x-0 top-14 bottom-0 z-50 overflow-y-auto border-t border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:absolute md:inset-auto md:left-0 md:top-full md:mt-2 md:w-[52rem] md:max-h-[80vh] md:rounded-xl md:border md:p-5 md:shadow-xl">
+        <div className="fixed inset-x-0 top-14 bottom-0 z-50 overflow-y-auto border-t border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:absolute md:inset-auto md:left-0 md:top-full md:mt-2 md:w-[60rem] md:max-h-[80vh] md:rounded-xl md:border md:p-5 md:shadow-xl">
           <div className="mb-4 md:hidden"><SearchBox compact /></div>
-          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
             {categories.map((c) => (
               <div key={c.name}>
                 <p className="label px-2">{c.name}</p>

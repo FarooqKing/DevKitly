@@ -1,6 +1,6 @@
-# DevKitly — developer tools site (Next.js 14)
+# DevKitly — free online tools site (Next.js 14)
 
-20 free, browser-based developer tools. Light/dark theme, instant search (press `/`), live results as you type, static pre-rendered pages for SEO.
+43 free, browser-based tools: PDF (merge, split, compress, convert, watermark…), Office (Excel/CSV/JSON/Word), 10 calculators, developer utilities, image converter. Light/dark theme, instant search (press `/`), live results as you type, static pre-rendered pages for SEO.
 
 ## Run
 ```bash
@@ -13,7 +13,11 @@ npm run build   # production build
 ```
 site.config.ts            # naam, tagline, URL, GitHub — live se pehle yahan change karo
 lib/tools.ts              # har tool ka metadata: name, icon, SEO description, about text
-tools/                    # har tool ka component ("use client")
+tools/                    # developer tools
+tools/pdf/                # PDF tools (pdf-lib + pdfjs-dist; worker in public/pdf.worker.min.mjs)
+tools/office/             # Excel/Word tools (xlsx, docx, mammoth)
+tools/calc/               # calculators (_ui.tsx = shared Field/Stat/Layout)
+components/FileDrop, FileList, Progress  # shared file-tool UI
 tools/_TwoPane.tsx        # reusable live input→output converter
 tools/index.ts            # slug -> component
 app/tools/[slug]/page.tsx # metadata + JSON-LD + layout (sidebar + about + related)
@@ -31,3 +35,6 @@ GitHub → Vercel import → done. Domain lene ke baad `site.config.ts` mein `ur
 
 ## AdSense
 `components/ToolPage.tsx` mein `Ad slot` comment ke neeche unit lagao; script `app/layout.tsx` mein.
+
+## Note: pdf.js worker
+`public/pdf.worker.min.mjs` is copied from `node_modules/pdfjs-dist/build/`. Agar pdfjs-dist upgrade karo toh file dobara copy karo.

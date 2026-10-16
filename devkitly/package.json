@@ -1,8 +1,13 @@
 {
   "name": "devkitly",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start", "lint": "next lint" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "diff": "^7.0.0",
     "lucide-react": "^0.453.0",
@@ -10,7 +15,13 @@
     "next": "14.2.15",
     "qrcode": "^1.5.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.7.76",
+    "jszip": "^3.10.1",
+    "xlsx": "^0.18.5",
+    "docx": "^9.0.2",
+    "mammoth": "^1.8.0"
   },
   "devDependencies": {
     "@types/diff": "^5.2.3",

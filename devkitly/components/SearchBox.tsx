@@ -45,7 +45,7 @@ export default function SearchBox({ compact = false, autoFocus = false }: { comp
           if (e.key === "Enter" && results[active]) go(results[active].slug);
           if (e.key === "Escape") setOpen(false);
         }}
-        placeholder={compact ? "Search tools…  /" : "Search tools, e.g. json, jwt, regex…"}
+        placeholder={compact ? "Search tools…  /" : "Search tools, e.g. merge pdf, emi, json…"}
         className={`field pl-10 ${compact ? "py-1.5" : "py-3 text-base shadow-card"}`}
         aria-label="Search tools"
       />
