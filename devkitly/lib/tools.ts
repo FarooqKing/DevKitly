@@ -10,18 +10,35 @@ export interface ToolMeta {
   keywords: string[];
   popular?: boolean;
   about: string[];
+  faq?: { q: string; a: string }[];
 }
 
-export const categories: { name: Category; blurb: string }[] = [
-  { name: "PDF", blurb: "Merge, split, compress, convert and edit PDFs" },
-  { name: "Office", blurb: "Excel, Word, CSV and JSON conversions" },
-  { name: "Calculators", blurb: "Loans, health, dates, taxes and everyday math" },
-  { name: "Formatters", blurb: "Beautify, minify and preview code" },
-  { name: "Encoders", blurb: "Encode, decode and inspect tokens" },
-  { name: "Generators", blurb: "Random IDs, hashes, passwords and QR codes" },
-  { name: "Text", blurb: "Compare, count, match and transform text" },
-  { name: "Converters", blurb: "Switch between formats and units" },
+export interface CategoryMeta { name: Category; slug: string; blurb: string; icon: string; description: string }
+
+export const categories: CategoryMeta[] = [
+  { name: "PDF", slug: "pdf", icon: "FileText", blurb: "Merge, split, compress, convert and edit PDFs", description: "Free online PDF tools: merge, split, compress, rotate, watermark, add page numbers, convert PDF to JPG and JPG to PDF. All processing happens in your browser." },
+  { name: "Office", slug: "office", icon: "FileSpreadsheet", blurb: "Excel, Word, CSV and JSON conversions", description: "Convert between Excel, CSV, JSON, HTML and Word online. Extract tables from Word, turn spreadsheets into Word documents. Private and free." },
+  { name: "Calculators", slug: "calculators", icon: "Calculator", blurb: "Loans, health, dates, taxes and everyday math", description: "Free online calculators for loans and EMI, compound interest, BMI, age, percentages, dates, discounts, tips, GST/VAT and unit conversion." },
+  { name: "Formatters", slug: "formatters", icon: "Braces", blurb: "Beautify, minify and preview code", description: "Format and validate JSON, preview Markdown and minify CSS online with instant results." },
+  { name: "Encoders", slug: "encoders", icon: "Binary", blurb: "Encode, decode and inspect tokens", description: "Base64, URL and HTML entity encoders and decoders plus a JWT decoder, all running in your browser." },
+  { name: "Generators", slug: "generators", icon: "Hash", blurb: "Random IDs, hashes, passwords and QR codes", description: "Generate UUIDs, SHA hashes, strong passwords, QR codes and Lorem Ipsum text instantly." },
+  { name: "Text", slug: "text", icon: "AlignLeft", blurb: "Compare, count, match and transform text", description: "Diff checker, regex tester, word counter and case converter for everyday text work." },
+  { name: "Converters", slug: "converters", icon: "ArrowLeftRight", blurb: "Switch between formats and units", description: "Convert timestamps, colors and images between formats, and turn images into Base64 data URLs." },
 ];
+
+export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
+export const categoryOf = (name: Category) => categories.find((c) => c.name === name)!;
+
+/** Generic FAQs shown on every tool page (feeds FAQPage schema). Tool-specific ones can be added via `faq` on ToolMeta. */
+export function toolFaqs(t: ToolMeta): { q: string; a: string }[] {
+  const base = [
+    { q: `Is the ${t.name} free to use?`, a: `Yes. ${t.name} is completely free with no sign-up, no limits on the number of uses and no watermarks added to your output.` },
+    { q: "Are my files or data uploaded to a server?", a: "No. This tool runs entirely in your web browser using JavaScript. Nothing you type, paste or drop is sent to our servers, which makes it safe for confidential documents and data." },
+    { q: `Does ${t.name} work on mobile?`, a: "Yes. The tool works in any modern browser on Android, iPhone, iPad, Windows, macOS and Linux. No app installation is required." },
+    { q: "Do I need to create an account?", a: "No account is needed. Open the page, use the tool and download or copy the result." },
+  ];
+  return [...(t.faq ?? []), ...base];
+}
 
 export const tools: ToolMeta[] = [
   // PDF

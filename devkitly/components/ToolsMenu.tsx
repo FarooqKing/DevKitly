@@ -36,7 +36,7 @@ export default function ToolsMenu() {
           <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
             {categories.map((c) => (
               <div key={c.name}>
-                <p className="label px-2">{c.name}</p>
+                <Link href={`/category/${c.slug}`} className="label block px-2 hover:text-brand-600">{c.name} →</Link>
                 <ul className="mt-1.5 space-y-0.5">
                   {tools.filter((t) => t.category === c.name).map((t) => {
                     const active = path === `/tools/${t.slug}`;
@@ -53,7 +53,7 @@ export default function ToolsMenu() {
             ))}
           </div>
           <div className="mt-4 flex gap-2 border-t border-slate-200 pt-4 text-sm md:hidden dark:border-slate-800">
-            <Link href="/" className="btn flex-1">Home</Link><Link href="/about" className="btn flex-1">About</Link>
+            <Link href="/tools" className="btn flex-1">All tools</Link><Link href="/about" className="btn flex-1">About</Link><Link href="/contact" className="btn flex-1">Contact</Link>
           </div>
         </div>
       )}

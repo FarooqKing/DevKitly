@@ -38,3 +38,20 @@ GitHub → Vercel import → done. Domain lene ke baad `site.config.ts` mein `ur
 
 ## Note: pdf.js worker
 `public/pdf.worker.min.mjs` is copied from `node_modules/pdfjs-dist/build/`. Agar pdfjs-dist upgrade karo toh file dobara copy karo.
+
+## Pages
+`/` home · `/tools` all tools (search + filter) · `/category/[slug]` category pages · `/tools/[slug]` tool pages (FAQ + schema) · `/about` · `/contact` · `/privacy` · `/terms`
+
+## SEO built in
+Per-page metadata + canonical, OG images (auto-generated per tool), sitemap.xml, robots.txt, web manifest, JSON-LD (WebSite + SearchAction, Organization, SoftwareApplication, BreadcrumbList, FAQPage, CollectionPage).
+
+## Analytics
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_GA_ID=G-XXXXXXX`.
+
+## Fonts
+Self-hosted via @fontsource (no Google Fonts dependency) — works where fonts.googleapis.com is slow or blocked.
+
+## Before going live
+1. `site.config.ts`: name, url, twitter, github
+2. Privacy/Terms pages: email addresses auto-use your domain; review wording
+3. Add AdSense script to `app/layout.tsx` and ad unit in `components/ToolPage.tsx` after approval

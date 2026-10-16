@@ -40,3 +40,9 @@
 .md-preview th, .md-preview td { @apply border border-slate-300 px-2 py-1 dark:border-slate-700; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.legal h2 { @apply mt-8 text-xl font-semibold; }
+.legal p, .legal li { @apply mt-3 leading-relaxed text-slate-600 dark:text-slate-400; }
+.legal ul { @apply list-disc pl-6; }
+.legal li { @apply mt-1.5; }
+.legal a { @apply text-brand-600 underline; }

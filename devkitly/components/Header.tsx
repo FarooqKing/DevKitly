@@ -14,7 +14,8 @@ export default function Header() {
           {siteConfig.name}
         </Link>
         <ToolsMenu />
-        <Link href="/about" className="btn btn-ghost hidden md:inline-flex">About</Link>
+        <Link href="/tools" className="btn btn-ghost hidden md:inline-flex">All tools</Link>
+        <Link href="/about" className="btn btn-ghost hidden lg:inline-flex">About</Link>
         <div className="hidden flex-1 justify-end md:flex"><div className="w-full max-w-xs"><SearchBox compact /></div></div>
         <div className="ml-auto flex items-center gap-1 md:ml-2 md:order-none">
           <a href={siteConfig.github} className="btn-icon" aria-label="GitHub" target="_blank" rel="noreferrer"><Github size={18} /></a>

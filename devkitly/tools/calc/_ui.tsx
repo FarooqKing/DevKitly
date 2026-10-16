@@ -19,7 +19,7 @@ export function Field({ label, value, onChange, suffix, prefix, min, max, step, 
 
 export function Stat({ label, value, big, copy }: { label: string; value: string; big?: boolean; copy?: boolean }) {
   return (
-    <div className={`${big ? "col-span-2 bg-brand-50 dark:bg-brand-600/10" : "bg-white dark:bg-slate-900"} p-4`}>
+    <div className={`${big ? "col-span-2 bg-brand-50 dark:bg-brand-600/10" : "[&:nth-child(odd)]:border-r"} border-b border-slate-200 p-4 last:border-b-0 dark:border-slate-800`}>
       <p className="text-xs text-slate-500">{label}</p>
       <div className="flex items-center gap-2"><p className={`${big ? "text-3xl text-brand-700 dark:text-brand-500" : "text-xl"} font-semibold tabular-nums`}>{value}</p>{copy && <CopyButton text={value} label="" className="btn-ghost h-7 w-7 px-0" />}</div>
     </div>
@@ -27,7 +27,7 @@ export function Stat({ label, value, big, copy }: { label: string; value: string
 }
 
 export function Stats({ children }: { children: React.ReactNode }) {
-  return <div className="card grid grid-cols-2 gap-px overflow-hidden bg-slate-200 dark:bg-slate-800">{children}</div>;
+  return <div className="card grid grid-cols-2 overflow-hidden">{children}</div>;
 }
 
 export function Layout({ form, results }: { form: React.ReactNode; results: React.ReactNode }) {
