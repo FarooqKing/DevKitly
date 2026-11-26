@@ -1,0 +1,52 @@
+{
+  "name": "devkitly",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/papaparse": "^5.5.2",
+    "diff": "^7.0.0",
+    "docx": "^9.0.2",
+    "fast-xml-parser": "^5.12.1",
+    "gifenc": "^1.0.3",
+    "js-yaml": "^5.5.0",
+    "jsbarcode": "^3.12.3",
+    "jszip": "^3.10.1",
+    "lamejs": "^1.2.1",
+    "lucide-react": "^0.453.0",
+    "mammoth": "^1.8.0",
+    "marked": "^14.1.3",
+    "next": "14.2.15",
+    "papaparse": "^5.7.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.7.76",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sql-formatter": "^15.10.0",
+    "terser": "^5.51.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.2.3",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
+    "playwright-core": "^1.65.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5"
+  }
+}

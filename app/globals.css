@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  .dark { color-scheme: dark; }
+  body { @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100; }
+  *:focus-visible { @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900; }
+}
+
+@layer components {
+  .card { @apply rounded-xl border border-slate-200/80 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900; }
+  .field { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500; }
+  .textarea { @apply field h-80 resize-y font-mono leading-relaxed; }
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800; }
+  .btn-primary { @apply border-transparent bg-gradient-to-r from-brand-600 to-violet-600 text-white shadow-md shadow-brand-600/25 hover:from-brand-700 hover:to-violet-700 hover:shadow-lg hover:shadow-brand-600/30 dark:border-transparent dark:from-brand-600 dark:to-violet-600; }
+  .btn-ghost { @apply border-transparent bg-transparent hover:bg-slate-100 dark:border-transparent dark:bg-transparent dark:hover:bg-slate-800; }
+  .btn-icon { @apply btn btn-ghost h-8 w-8 p-0; }
+  .seg { @apply inline-flex rounded-lg border border-slate-300 bg-slate-100 p-0.5 dark:border-slate-700 dark:bg-slate-800; }
+  .seg button { @apply rounded-md px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300; }
+  .seg button[aria-pressed="true"] { @apply bg-white text-slate-900 shadow-sm dark:bg-slate-950 dark:text-white; }
+  .label { @apply text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .prose-tool { @apply text-slate-600 dark:text-slate-400 leading-relaxed; }
+  .prose-tool p + p { @apply mt-3; }
+}
+
+.md-preview h1 { @apply text-2xl font-bold mt-4 mb-2; }
+.md-preview h2 { @apply text-xl font-semibold mt-4 mb-2; }
+.md-preview h3 { @apply text-lg font-semibold mt-3 mb-1; }
+.md-preview p { @apply my-2; }
+.md-preview ul { @apply list-disc pl-6 my-2; }
+.md-preview ol { @apply list-decimal pl-6 my-2; }
+.md-preview a { @apply text-brand-600 underline; }
+.md-preview code { @apply rounded bg-slate-100 px-1 font-mono text-sm dark:bg-slate-800; }
+.md-preview pre { @apply rounded-lg bg-slate-100 p-3 overflow-x-auto my-2 dark:bg-slate-800; }
+.md-preview pre code { @apply bg-transparent p-0; }
+.md-preview blockquote { @apply border-l-4 border-slate-300 pl-3 italic text-slate-600 dark:border-slate-700 dark:text-slate-400; }
+.md-preview table { @apply border-collapse my-2; }
+.md-preview th, .md-preview td { @apply border border-slate-300 px-2 py-1 dark:border-slate-700; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.legal h2 { @apply mt-8 text-xl font-semibold; }
+.legal p, .legal li { @apply mt-3 leading-relaxed text-slate-600 dark:text-slate-400; }
+.legal ul { @apply list-disc pl-6; }
+.legal li { @apply mt-1.5; }
+.legal a { @apply text-brand-600 underline; }
+
+@media print { html, body { background: #fff !important; } body * { visibility: hidden; } #invoice, #invoice * { visibility: visible; } #invoice { background: #fff !important; color: #0f172a !important; } }
+
+html { scroll-behavior: smooth; }
+::selection { @apply bg-brand-600/20; }
+
+/* Hero: dotted grid + animated mesh gradient blobs */
+.hero { background: radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.10) 1px, transparent 0) 0 0 / 24px 24px; }
+.dark .hero { background-image: radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.18) 1px, transparent 0); }
+.hero-blob { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: .55; pointer-events: none; animation: float 14s ease-in-out infinite; }
+.dark .hero-blob { opacity: .35; }
+@keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -20px) scale(1.08); } }
+.cat-card { @apply card relative flex flex-col items-center gap-2 p-5 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-600/10; }
+.cat-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, rgb(99 102 241 / .5), rgb(168 85 247 / .3), transparent 60%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .2s; }
+.cat-card:hover::after { opacity: 1; }
+.feature { @apply card p-6 transition hover:-translate-y-0.5 hover:shadow-lg; }
+.feature .ic { @apply mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-violet-600 text-white shadow-md shadow-brand-600/30; }
+.section-title { @apply text-2xl font-bold tracking-tight sm:text-3xl; }
+.eyebrow { @apply mb-2 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-700 dark:bg-brand-600/15 dark:text-brand-400; }
+
+/* Always-light "paper" surface for resume/invoice previews, regardless of theme */
+.paper, .dark .paper { background: #fff; color: #0f172a; color-scheme: light; border-radius: 0.75rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.08); }
+.dark .paper { border-color: #334155; }

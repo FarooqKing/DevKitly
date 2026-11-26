@@ -1,0 +1,30 @@
+"use client";
+// SEO alias pages: separate URLs that open an existing tool in a preset mode.
+import JsonFormatter from "../JsonFormatter";
+import Base64 from "../Base64";
+import UrlEncoder from "../UrlEncoder";
+import CssMinifier from "../CssMinifier";
+import HtmlFormatter from "../dev/HtmlFormatter";
+import JsonCsv from "../dev/JsonCsv";
+import XmlJson from "../dev/XmlJson";
+import YamlJson from "../dev/YamlJson";
+import WordCounter from "../WordCounter";
+import CaseConverter from "../CaseConverter";
+
+export const JsonMinifier = () => <JsonFormatter defaultMode="minify" />;
+export const JsonValidator = () => <JsonFormatter defaultMode="format" />;
+export const Base64Decode = () => <Base64 defaultMode="decode" />;
+export const UrlDecode = () => <UrlEncoder defaultMode="decode" />;
+export const CssFormatter = () => <CssMinifier defaultMode="beautify" />;
+export const HtmlMinifier = () => <HtmlFormatter defaultMode="minify" />;
+export const JsonToCsv = () => <JsonCsv defaultMode="j2c" />;
+export const CsvToJson = () => <JsonCsv defaultMode="c2j" />;
+export const XmlToJson = () => <XmlJson defaultMode="x2j" />;
+export const JsonToXml = () => <XmlJson defaultMode="j2x" />;
+export const YamlToJson = () => <YamlJson defaultMode="y2j" />;
+export const JsonToYaml = () => <YamlJson defaultMode="j2y" />;
+export const CharacterCounter = WordCounter;
+export const SentenceCounter = WordCounter;
+export const ParagraphCounter = WordCounter;
+export const UpperToLower = CaseConverter;
+export const LowerToUpper = CaseConverter;
