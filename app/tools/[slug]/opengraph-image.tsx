@@ -15,5 +15,6 @@ export default function OG({ params }: { params: { slug: string } }) {
       <div style={{ fontSize: 72, fontWeight: 800, marginTop: 40, lineHeight: 1.1 }}>{ascii(t?.name ?? siteConfig.name)}</div>
       <div style={{ fontSize: 32, marginTop: 24, color: "#cbd5e1" }}>{ascii(t?.short ?? siteConfig.tagline)}</div>
       <div style={{ fontSize: 26, marginTop: 50, color: "#a5b4fc" }}>Free - No sign-up - Runs in your browser</div>
+      {/* tree */}
     </div>, size);
 }
