@@ -1,12 +1,13 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/site.config";
-import { getTool, tools } from "@/lib/tools";
-export function generateStaticParams() { return tools.map((t) => ({ slug: t.slug })); }
+import { getTool } from "@/lib/tools";
+
+export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
 export default function OG({ params }: { params: { slug: string } }) {
   const t = getTool(params.slug);
-  // Satori fetches extra fonts for non-Latin glyphs (needs network at build), so keep OG text ASCII-only
   const ascii = (x: string) => x.replace(/↔/g, "to").replace(/[^\x20-\x7E]/g, "");
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: 80, background: "linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%)", color: "white", fontFamily: "sans-serif" }}>
